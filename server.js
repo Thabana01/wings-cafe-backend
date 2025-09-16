@@ -8,11 +8,14 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: "https://thabana01.github.io", // <-- frontend URL
+  origin: "https://thabana01.github.io", // frontend URL
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
 app.use(bodyParser.json());
+
+// Serve public folder for images
+app.use(express.static("public"));
 
 // --- Routes ---
 const productRoutes = require("./routes/productRoutes");
